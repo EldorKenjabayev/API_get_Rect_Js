@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React, { useEffect, useState } from "react";
+import Axios from './Axios/Axios'
+import AxiosNav from './Axios/AxiosNav'
+import { Route, Routes } from 'react-router'
+import IzbrannAxios from './Axios/IzbrannAxios'
+import axios from 'axios'
+export default function App() {
+  const [apiData, setApiData] = useState([]);
+  useEffect(() => {
+    axios.get("https://jsonplaceholder.typicode.com/photos").then((res) => {
+      setApiData(res.data);
+    });
+  }, [ ]);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <AxiosNav/>
+      <Routes>
+        <Route path='/' element={<Axios apiData={apiData}/ >}/>
+        <Route path= 'izbrann' element={<IzbrannAxios/>}/>
+      </Routes>
     </div>
-  );
+  )
 }
-
-export default App;

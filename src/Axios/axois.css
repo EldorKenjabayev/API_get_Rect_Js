@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+button{
+    padding: 12px 0px;
+    width: 200px;
+    position: relative;
+    border-radius: 15px;
+    background-color: #fff;
+}
+
+button:active{
+    background-color:#101010;
+    color: #fff;
+}
+
+center{
+    padding: 3vh 0;
+    display: flex;
+    gap: 3vw;
+    justify-content: center;
+    cursor: pointer;
+}
